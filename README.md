@@ -1,5 +1,5 @@
 # Restuarant-web-app
-Restuarant web-app that gets the type of meal and recipes from an external API. Built with web-pack, jquery, Ionic-framework, Materialise css and IIFE design pattern
+Restuarant web-app that gets the type of meal and recipes from an external API. Built with web-pack, Babel, jquery, Ionic-framework, Materialise css and the Module design pattern
 
 ## Built With 🔨
 
