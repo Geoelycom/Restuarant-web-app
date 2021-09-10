@@ -1,4 +1,7 @@
 // Global app controller
-import x from './test.js'
-const num = 49;
-console.log(`I imported ${x} from hahahahahahahahhahahahah.this ${num} is a magic number`)
+import Search from './models/Search.js';
+const searchItem = new Search('pizza')
+searchItem.fetchData()
+//console.log(searchItem)
+
+
