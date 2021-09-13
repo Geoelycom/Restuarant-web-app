@@ -1,9 +1,15 @@
 import { elements } from './base';
 export const getInput = () => elements.inputElement.value;
 
+export const clearInput = () => {
+	elements.inputElement.value = '';
+}
+export const clearResult = () => {
+	elements.searchResultList.innerHTML = '';
+}
 const renderRecipes = recipe => {
 	let markup = '';
-	 markup += `
+	markup += `
 									<li>
 									<a class="results__link" href="#${recipe.recipe_id}">
 													<figure class="results__fig">
