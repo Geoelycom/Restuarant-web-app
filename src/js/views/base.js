@@ -2,7 +2,8 @@ export const elements = {
 	form: document.querySelector('.search'),
 	inputElement: document.querySelector('.search__field'),
 	searchResLoader: document.querySelector('.results'),
-	searchResultList: document.querySelector('.results__list')
+	searchResultList: document.querySelector('.results__list'),
+	searchResultPages: document.querySelector('.results__pages')
 }
 
 export const elementStrings = {
@@ -23,7 +24,7 @@ export const renderLoader = parent => {
 
 export const clearLoader = () => {
 	const loader = document.querySelector(`.${elementStrings.loader}`);
-	if (loader){
+	if (loader) {
 		loader.parentElement.removeChild(loader)
 	}
 }
