@@ -23,6 +23,16 @@ export default class Recipe {
 			//console.log(title)
 		} catch (error) {
 			console.log('wrong response data')
+			alert('wrong key')
 		}
+	}
+	calcTime() {
+		const numIngredients = this.ingredients.length;
+		const periods = Math.ceil(numIngredients / 3);
+		this.time = periods * 15;
+	}
+
+	calcServings() {
+		this.servings = 4;
 	}
 }
