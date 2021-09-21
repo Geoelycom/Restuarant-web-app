@@ -17,7 +17,6 @@ export default class Recipe {
 			// this.img = recipeId.data.recipe.img_url;
 			// this.url = recipeId.data.recipe.source_url;
 			// this.ingredients = recipeId.data.recipe.ingredients;
-			console.log(recipeId)
 			let { title, image_url, source_url, ingredients, publisher } = recipeId.data.recipe;
 			Object.assign(this, { title, image_url, source_url, ingredients, publisher })
 			//console.log(title)
