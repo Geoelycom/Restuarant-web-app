@@ -1,6 +1,7 @@
 import Search from './models/Search.js';
 import Recipe from './models/Recipe.js'
 import * as searchView from './views/searchView.js';
+import * as recipeView from './views/recipeView.js';
 import { elements, renderLoader, clearLoader } from './views/base'
 // Global app controller
 /** Global state of the App
@@ -11,9 +12,6 @@ import { elements, renderLoader, clearLoader } from './views/base'
 	*/
 
 const state = {};
-
-
-
 
 const controlSearch = async () => {
 	// 1) get query from view
@@ -58,31 +56,28 @@ elements.searchResultPages.addEventListener('click', e => {
 
 const controlRecipe = async () => {
 	const id = window.location.hash.replace('#', '');
-	console.log(id)
 	if (id) {
 		//prepare UI for Id
-
+		recipeView.clearRecipeResult()
+		renderLoader(elements.recipeResultPages)
 		//create a new object based on id
 		state.recipe = new Recipe(id);
-
+		//get recipe data and Parse Ingredients
 		try {
-			//get recipe data and Parse Ingredients
 			await state.recipe.fetchRecipeId()
-			console.log(state.recipe.ingredients)
-			state.recipe.parseIngredients()
 
+			state.recipe.parseIngredients()
 
 			//calc time and servings
 			state.recipe.calcTime()
 			state.recipe.calcServings()
 
-
 			// render recipe
-			console.log(state.recipe)
+			clearLoader()
+			recipeView.renderRecipe(state.recipe)
 		} catch (error) {
-			alert('error processing recipe')
+			alert('wrong recipe data')
 		}
-
 	}
 };
 
