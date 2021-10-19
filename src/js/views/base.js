@@ -4,8 +4,9 @@ export const elements = {
 	searchResLoader: document.querySelector('.results'),
 	searchResultList: document.querySelector('.results__list'),
 	searchResultPages: document.querySelector('.results__pages'),
-	recipeResultPages: document.querySelector('.recipe')
-}
+	recipeResultPages: document.querySelector('.recipe'),
+	shoppingRecipeList: document.querySelector('.shopping__list')
+};
 
 export const elementStrings = {
 	loader: 'loader',
@@ -15,16 +16,16 @@ export const renderLoader = parent => {
 	const loader = `
 	<div class="${elementStrings.loader}">
 	   <svg>
-				    <use href="img/icons.svg#icon-cw"></use>
-						</svg>
+	    <use href="img/icons.svg#icon-cw"></use>
+			</svg>
 		</div>
 	`;
-	parent.insertAdjacentHTML('afterbegin', loader)
-}
+	parent.insertAdjacentHTML('afterbegin', loader);
+};
 
 export const clearLoader = () => {
 	const loader = document.querySelector(`.${elementStrings.loader}`);
 	if (loader) {
-		loader.parentElement.removeChild(loader)
+		loader.parentElement.removeChild(loader);
 	}
-}
+};

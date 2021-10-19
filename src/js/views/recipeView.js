@@ -1,29 +1,33 @@
-import { elements } from './base';
-import { Fraction } from 'fractional';
+import {
+	elements
+} from './base';
+import {
+	Fraction
+} from 'fractional';
 
 export const clearRecipeResult = () => {
 	elements.recipeResultPages.innerHTML = '';
-}
+};
 
 
 export const formatCount = count => {
-	if (count){
-	const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
-	
-	if (!dec){
-		return count; 
+	if (count) {
+		const [int, dec] = count.toString().split('.').map(el => parseInt(el, 10));
+
+		if (!dec) {
+			return count;
+		}
+		if (int === 0) {
+			const fr = new Fraction(count);
+			return `${fr.numerator}/${fr.denominator}	`;
+		} else {
+			const fr = new Fraction(count - int);
+			return `${int}  ${fr.numerator}/${fr.denominator}	`;
+		}
 	}
-	if (int === 0){
-		const fr = new Fraction(count)
-		return  `${fr.numerator}/${fr.denominator}	`;
-	}else{
-		const fr = new Fraction(couunt - int)
-		return  `${int}  ${fr.numerator}/${fr.denominator}	`;
-	}
-	}
-	return '?'
-	};
-	
+	return '?';
+};
+
 
 const createIngredient = (ingredients) => {
 	return ` 
@@ -38,7 +42,7 @@ const createIngredient = (ingredients) => {
 							</div>
 		</li>
 	`;
-}
+};
 
 export const renderRecipe = recipe => {
 	let htmlMarkUp = '';
@@ -91,7 +95,7 @@ export const renderRecipe = recipe => {
 					${recipe.ingredients.map(el => createIngredient(el)).join('')}
 					</ul>
 
-					<button class="btn-small recipe__btn">
+					<button class="btn-small recipe__btn recipe__btn--add">
 									<svg class="search__icon">
 													<use href="img/icons.svg#icon-shopping-cart"></use>
 									</svg>
@@ -113,7 +117,7 @@ export const renderRecipe = recipe => {
 
 					</a>
 	</div>
-`
+`;
 	elements.recipeResultPages.insertAdjacentHTML('afterbegin', htmlMarkUp);
 };
 
@@ -125,5 +129,5 @@ export const updateServingsIngredients = recipe => {
 	const countElements = Array.from(document.querySelectorAll('.recipe__count'));
 	countElements.forEach((el, i) => {
 		el.textContent = formatCount(recipe.ingredients[i].count);
-	})
-}
+	});
+};

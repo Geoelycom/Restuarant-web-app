@@ -14,9 +14,9 @@ export default class Recipe {
 			});
 
 			let { title, image_url, source_url, ingredients, publisher } = recipeId.data.recipe;
-			Object.assign(this, { title, image_url, source_url, ingredients, publisher })
+			Object.assign(this, { title, image_url, source_url, ingredients, publisher });
 		} catch (error) {
-			alert('wrong key')
+			alert('wrong key');
 		}
 	}
 	calcTime() {
@@ -30,9 +30,9 @@ export default class Recipe {
 	}
 
 	parseIngredients() {
-		const unitsLong = ['tablespoons', 'tablespoon', 'ounces', 'ounce', 'teaspoons', 'teaspoon', 'cups', 'pounds']
-		const unitsShorts = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound']
-		const units = [...unitsShorts, 'kg', 'g']
+		const unitsLong = ['tablespoons', 'tablespoon', 'ounces', 'ounce', 'teaspoons', 'teaspoon', 'cups', 'pounds'];
+		const unitsShorts = ['tbsp', 'tbsp', 'oz', 'oz', 'tsp', 'tsp', 'cup', 'pound'];
+		const units = [...unitsShorts, 'kg', 'g'];
 
 		const newIngredients = this.ingredients.map(el => {
 			// create uniform ingredients
@@ -45,7 +45,7 @@ export default class Recipe {
 
 			//parse Ingredients into count, unit and ingredient
 			const arrIngredients = ingredient.split(' ');
-			const unitIndex = arrIngredients.findIndex(elementIng => units.includes(elementIng))
+			const unitIndex = arrIngredients.findIndex(elementIng => units.includes(elementIng));
 
 			let objIngredient;
 			//there is a unit
@@ -72,7 +72,7 @@ export default class Recipe {
 					count: parseInt(arrIngredients[0], 10),
 					unit: '',
 					ingredient: arrIngredients.slice(1).join(' ')
-				}
+				};
 			}
 
 			else if (unitIndex === -1) {
@@ -81,7 +81,7 @@ export default class Recipe {
 					count: 1,
 					unit: '',
 					ingredient
-				}
+				};
 			}
 
 			return objIngredient;
@@ -95,7 +95,7 @@ updateServings(type){
 	this.ingredients.forEach(ing => {
 		ing.count *= (newServings / this.servings);
 	});
-	this.servings = newServings
+	this.servings = newServings;
 }
 
 }

@@ -19,15 +19,15 @@ const limitRecipeTitle = (title, limit = 17) => {
 	if (title.length > limit) {
 		title.split(' ').reduce((acc, cur) => {
 			if (acc + cur.length <= limit) {
-				newTitle.push(cur)
+				newTitle.push(cur);
 			}
 			return acc + cur.length;
-		}, 0)
+		}, 0);
 		// return result of the acc
-		return `${newTitle.join(' ')}...`
+		return `${newTitle.join(' ')}...`;
 	}
 	return title;
-}
+};
 
 const renderRecipes = recipe => {
 	let markup = '';
@@ -46,7 +46,7 @@ const renderRecipes = recipe => {
 `;
 	elements.searchResultList.insertAdjacentHTML('beforeend', markup);
 
-}
+};
 
 const createButton = (page, type) => `
 						<button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
@@ -63,7 +63,7 @@ const renderButtons = (page, numResults, resPerPage) => {
 
 	let buttons;
 	if (page === 1 && pages > 1) {
-		buttons = createButton(page, 'next')
+		buttons = createButton(page, 'next');
 	} else if (page < pages) {
 
 		buttons = `
@@ -72,15 +72,15 @@ const renderButtons = (page, numResults, resPerPage) => {
 						`;
 
 	} else if (page === pages && pages > 1) {
-		buttons = createButton(page, 'prev')
+		buttons = createButton(page, 'prev');
 	}
-	elements.searchResultPages.insertAdjacentHTML('afterbegin', buttons)
-}
+	elements.searchResultPages.insertAdjacentHTML('afterbegin', buttons);
+};
 
 export const renderResults = (recipes, page = 1, resPerPage = 10) => {
 	const start = (page - 1) * resPerPage;
 	const end = page * resPerPage;
 
-	recipes.slice(start, end).forEach(renderRecipes)
-	renderButtons(page, recipes.length, resPerPage)
+	recipes.slice(start, end).forEach(renderRecipes);
+	renderButtons(page, recipes.length, resPerPage);
 };
