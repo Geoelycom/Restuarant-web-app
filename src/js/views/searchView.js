@@ -3,18 +3,18 @@ export const getInput = () => elements.inputElement.value;
 
 export const clearInput = () => {
 	elements.inputElement.value = '';
-}
+};
 export const clearResult = () => {
 	elements.searchResultList.innerHTML = '';
 	elements.searchResultPages.innerHTML = '';
-}
+};
 
 
 export const highlightSelected = id => {
-	document.querySelector(`a[href*="#${id}"]`).classList.add('results__link--active');
-}
+	document.querySelector(`.results__link[href*="#${id}"]`).classList.add('results__link--active');
+};
 
-const limitRecipeTitle = (title, limit = 17) => {
+export const limitRecipeTitle = (title, limit = 17) => {
 	const newTitle = [];
 	if (title.length > limit) {
 		title.split(' ').reduce((acc, cur) => {
@@ -50,10 +50,10 @@ const renderRecipes = recipe => {
 
 const createButton = (page, type) => `
 						<button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
-										<svg class="search__icon">
-														<use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
-										</svg>
-															<span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
+							<svg class="search__icon">
+									<use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"><use>
+								</svg>
+								<span>Page ${type === 'prev' ? page - 1 : page + 1}</span>
 							</button>
 
 `;
