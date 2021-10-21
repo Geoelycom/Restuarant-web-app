@@ -23,7 +23,7 @@ export const renderShoppingListItem = item => {
 };
 
 export const deleteShoppingItem = id => {
-  const item = document.querySelector(`[dataitem-id="${id}"]`);
-  if(item)
-  item.parentElement.removeChild(item);
+  const item = document.querySelector(`[data-itemid="${id}"]`);
+  if (item)
+    item.parentElement.removeChild(item);
 };
