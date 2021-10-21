@@ -10,6 +10,7 @@ import {
 	renderLoader,
 	clearLoader
 } from './views/base';
+
 // Global app controller
 /** Global state of the App
  * - Search object
@@ -110,14 +111,13 @@ const controlList = () => {
 		listView.renderShoppingListItem(item);
 	});
 };
-
 //Handle delete and update element in shopping list
 
 elements.shoppingRecipeList.addEventListener('click', e => {
 	const id = e.target.closest('.shopping__item').dataset.itemid;
 	// Handle delete button
 	if (e.target.matches('.shopping__delete, .shopping__delete *')) {
-		state.list.deleteShoppingItem(id);
+		state.list.deleteItem(id);
 		listView.deleteShoppingItem(id);
 		//Handle count update
 	} else if (e.target.matches('.shopping__count-value')) {
@@ -125,6 +125,8 @@ elements.shoppingRecipeList.addEventListener('click', e => {
 		state.list.updateCount(id, val);
 	}
 });
+
+
 
 /** Likes controller */
 
@@ -148,11 +150,6 @@ const controlLike = () => {
 
 	}
 };
-
-
-
-
-
 
 
 
