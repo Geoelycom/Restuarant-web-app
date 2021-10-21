@@ -20,6 +20,7 @@ export default class List {
   deleteItem(id) {
     const index = this.items.findIndex(el => el.id === id);
     this.items.splice(index, 1);
+    //console.log(this.items);
   }
 
   updateCount(id, newCount) {

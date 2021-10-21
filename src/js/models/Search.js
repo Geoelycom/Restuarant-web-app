@@ -15,7 +15,7 @@ export default class Search {
 			this.result = response.data.recipes;
 		}
 		catch (error) {
-			alert('wrong url or data')
+			alert('wrong url or data');
 		}
 	}
 
