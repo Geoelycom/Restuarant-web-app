@@ -22,7 +22,6 @@ export const renderShoppingListItem = item => {
 
 };
 
-
 export const deleteShoppingItem = id => {
   const item = document.querySelector(`[dataitem-id="${id}"]`);
   if(item)
