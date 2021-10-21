@@ -7,6 +7,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'js/bundle.js'
 	},
+
 	devServer: {
 		static: './dist'
 	},
@@ -17,15 +18,12 @@ module.exports = {
 		})
 	],
 	module: {
-		rules: [
-			{
-				test: /\.js$/,
-				exclude: /node_modules/,
-				use: {
-					loader: 'babel-loader'
-				}
+		rules: [{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			use: {
+				loader: 'babel-loader'
 			}
-		]
+		}]
 	}
-}
-
+};
