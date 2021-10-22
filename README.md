@@ -19,6 +19,7 @@ Restuarant web-app that gets the type of meal and recipes from an external API. 
 
 [Live Demo Link]( https://resturant-web-app.netlify.app/)
 
+![Screenshot](forkify.png)
 ### Install
 
 To get a local copy up and running follow these simple example steps.
