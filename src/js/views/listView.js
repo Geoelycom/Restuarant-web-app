@@ -13,7 +13,7 @@ export const renderShoppingListItem = item => {
                     <use href="img/icons.svg#icon-circle-with-cross"></use>
                   </svg>
               </button>
-    </li>
+  </li>
   
   `;
   elements.shoppingRecipeList.insertAdjacentHTML('beforeend', shoppingMarkUp);
