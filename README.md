@@ -17,7 +17,7 @@ Restuarant web-app that gets the type of meal and recipes from an external API. 
 
 ## Live Demo 👀
 
-[Live Demo Link]( https://geoelycom.github.io/Conference-website/)
+[Live Demo Link]( https://resturant-web-app.netlify.app/)
 
 ### Install
 
