@@ -22,8 +22,6 @@ import {
  */
 
 const state = {};
-window.state = state;
-
 
 /*** Search controller ****/
 const controlSearch = async () => {
@@ -47,9 +45,7 @@ const controlSearch = async () => {
 			clearLoader();
 		}
 	}
-
 };
-
 
 elements.form.addEventListener('submit', (e) => {
 	e.preventDefault();
@@ -82,9 +78,7 @@ const controlRecipe = async () => {
 		//get recipe data and Parse Ingredients
 		try {
 			await state.recipe.fetchRecipeId();
-
 			state.recipe.parseIngredients();
-
 			//calc time and servings
 			state.recipe.calcTime();
 			state.recipe.calcServings();
@@ -128,10 +122,7 @@ elements.shoppingRecipeList.addEventListener('click', e => {
 	}
 });
 
-
-
 /*** Likes controller ***/
-
 
 const controlLike = () => {
 	if (!state.likes)
@@ -150,7 +141,6 @@ const controlLike = () => {
 		likesView.toggleLikeButton(true);
     likesView.RenderlikesMenuView(newLike);
 		
-
 	} else {
 		state.likes.deleteLike(currentId); 
 		//toggle the like button to Unlike
@@ -172,10 +162,6 @@ window.addEventListener('load', () => {
 	state.likes.likes.forEach(like => likesView.RenderlikesMenuView(like));
 });
 
-
-
-
-
 //Handling recipe button clicks
 elements.recipeResultPages.addEventListener('click', e => {
 	if (e.target.matches('.btn-decrease, .btn-decrease *')) {
@@ -193,7 +179,4 @@ elements.recipeResultPages.addEventListener('click', e => {
 		//Like controller function
 		controlLike();
 	}
-	console.log(state.recipe);
 });
-
-window.l = new List();
