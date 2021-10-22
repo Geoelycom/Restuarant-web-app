@@ -84,7 +84,6 @@ const controlRecipe = async () => {
 			await state.recipe.fetchRecipeId();
 
 			state.recipe.parseIngredients();
-
 			//calc time and servings
 			state.recipe.calcTime();
 			state.recipe.calcServings();
@@ -129,7 +128,6 @@ elements.shoppingRecipeList.addEventListener('click', e => {
 });
 
 
-
 /*** Likes controller ***/
 
 
@@ -150,7 +148,6 @@ const controlLike = () => {
 		likesView.toggleLikeButton(true);
     likesView.RenderlikesMenuView(newLike);
 		
-
 	} else {
 		state.likes.deleteLike(currentId); 
 		//toggle the like button to Unlike
@@ -171,9 +168,6 @@ window.addEventListener('load', () => {
 	//state.Likes.likes.forEach(like => likes.likesView(like));
 	state.likes.likes.forEach(like => likesView.RenderlikesMenuView(like));
 });
-
-
-
 
 
 //Handling recipe button clicks
