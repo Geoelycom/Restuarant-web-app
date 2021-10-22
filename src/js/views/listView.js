@@ -1,6 +1,4 @@
-import {
-  elements
-} from "./base";
+import { elements } from "./base";
 
 export const renderShoppingListItem = item => {
   const shoppingMarkUp = `
